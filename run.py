@@ -21,9 +21,25 @@ def get_sales_data():
     print("Data should be seven numbers, seperated by commas.")
     print("Example: 20,30,40,50,60,70,80\n")
 
-    sale_input = input("Enter sales here: ")
-    print(f"The data provided is {sale_input}")
+    sales_input = input("Enter sales here: ")
 
+    sales_data = sales_input.split(",")
+    validate_data(sales_data)
+
+
+def validate_data(values):
+    """
+    Inside the try, converts string values to integers.
+    Raises ValueError if strings cannot be converted to integers,
+    or if there are not exacly seven values.
+    """
+    try:
+        if len(values) != 7:
+            raise ValueError(
+                f"Exacly 7 numbers are required, you provided {len(values)}"
+            )
+    except ValueError as e:
+        print(f"Invalid data: {e}, try again.\n")
 
 
 get_sales_data()
