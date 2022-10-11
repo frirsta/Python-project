@@ -109,7 +109,19 @@ def calculate_surplus_data(sales_row):
     
     return surplus_data
 
+def get_last_7_entries_sales():
+    """
+    Collects columns of data from sales worksheet, collecting the last seven entries for each day
+    and returns the data as a list of lists.
+    """
+    sales = SHEET.worksheet("sales")
 
+    columns = []
+    for ind in range(1, 8):
+        column = sales.col_values(ind)
+        columns.append(column[-7:])
+    
+    return columns
 
 
 def main():
@@ -125,4 +137,7 @@ def main():
 
 
 print("Welcome to Data Automation")
-main()
+# main()
+
+sales_columns = get_last_7_entries_sales()
+print(sales_columns)
