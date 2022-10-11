@@ -33,7 +33,9 @@ def validate_data(values):
     Raises ValueError if strings cannot be converted to integers,
     or if there are not exacly seven values.
     """
+    print(values)
     try:
+        [int(value) for value in values]
         if len(values) != 7:
             raise ValueError(
                 f"Exacly 7 numbers are required, you provided {len(values)}"
