@@ -1,6 +1,6 @@
 import gspread
 from google.oauth2.service_account import Credentials
-from pprint import pprint
+
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
@@ -26,7 +26,7 @@ def get_sales_data():
         print("Data should be seven numbers, seperated by commas.")
         print("Example: 20,30,40,50,60,70,80\n")
 
-        sales_input = input("Enter sales here: ")
+        sales_input = input("Enter sales here: \n")
 
         sales_data = sales_input.split(",")
         
